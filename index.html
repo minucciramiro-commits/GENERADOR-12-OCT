@@ -99,8 +99,8 @@ input[type=range]{width:100%;accent-color:var(--ink)}
 @media (max-width:640px){
   .wrap{padding-block:0 40px}
   .main{padding-top:16px;gap:24px}
-  .wall{padding:44px 20px 28px;min-height:0}
-  .wall svg{max-width:300px}
+  .wall{padding:40px 12px 24px;min-height:0}
+  .wall svg{max-width:100%}
   .stage{gap:18px}
   .datelong{font-size:16px}
   .cartela b{font-size:24px}
@@ -163,8 +163,8 @@ input[type=range]{width:100%;accent-color:var(--ink)}
 
       <div class="sec">
         <h2>Público del día</h2>
-        <div class="bignum"><input type="number" id="visitors" min="0" step="1" value="150" aria-label="Visitantes"><span>personas</span></div>
-        <input type="range" id="range" min="0" max="240" step="1" value="150" aria-label="Visitantes">
+        <div class="bignum"><input type="number" id="visitors" min="0" step="1" value="0" aria-label="Visitantes"><span>personas</span></div>
+        <input type="range" id="range" min="0" max="240" step="1" value="0" aria-label="Visitantes">
         <div class="ticks"><span>0% · 4</span><span>50% · 8</span><span>100% · 12</span></div>
         <div class="row">
           <button class="btn" id="minus5">−10</button>
@@ -287,7 +287,7 @@ function svgFor(c,colors,grid,size,vertical){
   return s;
 }
 const MQ=window.matchMedia('(max-width:640px)');
-const isV=()=>MQ.matches;
+const isV=()=>false;
 function toGray(hex){const n=parseInt(hex.slice(1),16),r=n>>16&255,g=n>>8&255,b=n&255;const l=Math.round(0.2126*r+0.7152*g+0.0722*b);const h=l.toString(16).padStart(2,'0');return '#'+h+h+h}
 function grayOf(colors){return colors.map(toGray)}
 function svgToPng(svg,width){
@@ -303,7 +303,7 @@ function svgToPng(svg,width){
 
 // estado
 const $=id=>document.getElementById(id);
-const S={visitors:150,avg:200,date:new Date(),mode:'date',season:0,salt:0,grid:false,sim:null,history:[],cur:null};
+const S={visitors:0,avg:200,date:new Date(),mode:'date',season:0,salt:0,grid:false,sim:null,history:[],cur:null};
 function ymd(d){const p=n=>String(n).padStart(2,'0');return d.getFullYear()+'-'+p(d.getMonth()+1)+'-'+p(d.getDate())}
 function fromYmd(s){const [y,m,d]=s.split('-').map(Number);return new Date(y,m-1,d,12)}
 function activeSeason(){return S.mode==='date'?seasonOf(S.date):S.season}
