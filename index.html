@@ -113,6 +113,26 @@ input[type=range]{width:100%;accent-color:var(--ink)}
   .thumbs{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
   .strip-head .btn{width:100%;min-height:44px}
   .strip-head h2{font-size:20px}
+  .main{gap:16px}
+  .controls{display:contents}
+  .stage{order:1;gap:8px}
+  .s-pub{order:2;border-top:1px solid var(--ink)}
+  .dlbar:not(.bw){order:3}
+  .dlbar.bw{order:4}
+  .s-temp{order:5;border-top:1px solid var(--ink)}
+  .s-vista{order:6}
+  .datelong{display:none}
+  .wall{padding:28px 8px 16px}
+  .cartela{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .cartela div{padding:8px 4px 2px 0}
+  .cartela div+div,.cartela div:nth-child(3){padding-left:8px;border-left:1px solid var(--rule)}
+  .cartela small{font-size:9px;letter-spacing:.06em}
+  .cartela b{font-size:17px}
+  .sec{padding-block:12px 14px;gap:10px}
+  .bignum input{font-size:26px}
+  .dlbar{gap:10px}
+  .dl-label{font-size:15px}
+  .bw-prev{width:150px}
   .dlbar{padding:14px 16px}
   .dl-label{font-size:16px}
   .dl-btns{flex:1 1 100%}
@@ -146,7 +166,7 @@ input[type=range]{width:100%;accent-color:var(--ink)}
     </section>
 
     <aside class="controls" aria-label="Controles">
-      <div class="sec">
+      <div class="sec s-temp">
         <h2>Temporada</h2>
         <div class="seg" role="group" aria-label="Elegir por">
           <button id="modeDate" aria-pressed="true">Por fecha</button>
@@ -161,7 +181,7 @@ input[type=range]{width:100%;accent-color:var(--ink)}
         <div id="bySeason" class="seasons" hidden></div>
       </div>
 
-      <div class="sec">
+      <div class="sec s-pub">
         <h2>Público del día</h2>
         <div class="bignum"><input type="number" id="visitors" min="0" step="1" value="0" aria-label="Visitantes"><span>personas</span></div>
         <input type="range" id="range" min="0" max="240" step="1" value="0" aria-label="Visitantes">
@@ -176,7 +196,7 @@ input[type=range]{width:100%;accent-color:var(--ink)}
         </label>
       </div>
 
-      <div class="sec">
+      <div class="sec s-vista">
         <h2>Vista</h2>
         <label class="switch" for="showGrid"><span>Mostrar grilla</span><input type="checkbox" id="showGrid"></label>
         <div class="row"><button class="btn" id="regen">Otra variación</button></div>
